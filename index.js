@@ -171,9 +171,9 @@ const mobilePaymentTemplate = methods => {
   </accordion>
   `
 }
-function getPaymentImage(payemntTitle){
+function getPaymentImage(paymentTitle){
   let basePath = '/cms/images/icons/bank-page/'
-  switch (payemntTitle) {
+  switch (paymentTitle) {
     case 'Credit Card':
       return basePath + 'epro_370001.png'
     case 'EPRO':
@@ -207,6 +207,7 @@ function getPaymentImage(payemntTitle){
     case 'UPAY':
       return basePath + 'apco_270041.png'
     default:
+      throw new Exception('Unknown payment provider name', paymentTitle)
       return '#ERROR#'
   }
 }
